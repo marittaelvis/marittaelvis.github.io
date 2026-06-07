@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Dr. Maritta Puthusserry | Medical Education & Clinical Tutorials</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Dr. Maritta Puthusserry | The Master Intern Series</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
@@ -28,26 +27,31 @@
             width: 3rem;
             font-size: 1.5rem;
         }
-        .card { border-radius: 1rem; border: 1px solid rgba(0,0,0,0.08); }
+        .card { border-radius: 1rem; border: 1px solid rgba(0,0,0,0.06); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
         .nav-link:hover { color: #1e3c72 !important; }
+        .accordion-item { border-radius: 0.75rem !important; margin-bottom: 0.5rem; border: 1px solid rgba(0,0,0,0.08) !important; overflow: hidden; }
+        .accordion-button:not(.collapsed) { background-color: #f0f4f8; color: #1e3c72; font-weight: 600; }
+        .timezone-badge { font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-weight: 600; }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <main class="flex-shrink-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top border-bottom shadow-sm">
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top shadow-sm">
             <div class="container px-5">
                 <a class="navbar-brand font-weight-bold" href="#about">
-                    <span class="fw-bolder text-primary"><i class="bi bi-heart-pulse-fill me-2"></i>Dr. Maritta Puthusserry, MBBS</span>
+                    <span class="fw-bolder text-primary"><i class="bi bi-heart-pulse-fill me-2"></i>Dr. Maritta Puthusserry</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                        <li class="nav-item"><a class="nav-link" href="#about">About & Credentials</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#curriculum">Teaching Program</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#archive">Past Lectures</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#feedback">Submit Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About & Mission</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#curriculum">The Master Intern Series</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resources">Syllabus & Logs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#feedback">Submit Evaluation</a></li>
                     </ul>
-                    <a class="btn btn-primary btn-sm px-3 py-2 ms-lg-4 rounded-3" href="#curriculum">View Classes</a>
+                    <a class="btn btn-primary btn-sm px-3 py-2 ms-lg-4 rounded-3" href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank">Enroll for Free</a>
                 </div>
             </div>
         </nav>
@@ -57,12 +61,18 @@
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-7 col-xl-6">
                         <div class="text-center text-xl-start">
-                            <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase tracking-wider small px-1">UK NHS IMT & Neurology Pathway</div></div>
-                            <h1 class="display-3 fw-bolder mb-3"><span class="text-gradient d-inline">Interactive Virtual Clinical Tutorials</span></h1>
-                            <div class="fs-4 fw-light text-muted mb-4">Dedicated clinical modules structured for global medical students, PLAB candidates, and international medical graduates. Delivered virtually across borders by Dr. Maritta Puthusserry.</div>
+                            <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                                <div class="text-uppercase tracking-wider small px-1">Free Peer-Mentorship Clinical Initiative</div>
+                            </div>
+                            <h1 class="display-4 fw-bolder mb-3"><span class="text-gradient d-inline">The Master Intern Series</span></h1>
+                            <div class="fs-5 text-muted mb-4 leading-relaxed">
+                                Moving from final-year medical studies straight into busy clinical wards is a demanding milestone. As an **AIIMS Bathinda 2026 Graduate** and **Internal Medicine Topper**, I am launching this completely free interactive series to help you navigate your transition smoothly.
+                                <br><br>
+                                Get practical, high-yield advice, master essential data interpretations, and confidently tackle daily ward routines alongside a supportive peer group.
+                            </div>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                <a class="btn btn-primary btn-lg px-4 py-3 me-sm-3 fs-6 fw-bolder rounded-4" href="#curriculum"><i class="bi bi-calendar-event me-2"></i>View Syllabus</a>
-                                <a class="btn btn-outline-dark btn-lg px-4 py-3 fs-6 fw-bolder rounded-4" href="#feedback">Leave Feedback</a>
+                                <a class="btn btn-primary btn-lg px-4 py-3 me-sm-3 fs-6 fw-bolder rounded-4" href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank"><i class="bi bi-google me-2"></i>Register Free via Google Form</a>
+                                <a class="btn btn-outline-dark btn-lg px-4 py-3 fs-6 fw-bolder rounded-4" href="#curriculum">Explore Schedule</a>
                             </div>
                         </div>
                     </div>
@@ -72,29 +82,29 @@
                             <div class="col-6">
                                 <div class="p-4 bg-white shadow-sm border rounded-4 text-center h-100 d-flex flex-column align-items-center justify-content-center">
                                     <div class="feature-icon bg-light text-primary rounded-3 mb-2"><i class="bi bi-award-fill"></i></div>
-                                    <h4 class="fw-bold text-dark m-0">AIIMS</h4>
-                                    <small class="text-muted fw-bold d-block mt-1" style="font-size: 0.75rem;">Bathinda (2026 Graduate)</small>
+                                    <h5 class="fw-bold text-dark m-0">AIIMS Bathinda</h5>
+                                    <small class="text-muted fw-bold d-block mt-1">MBBS Class of 2026</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="p-4 bg-white shadow-sm border rounded-4 text-center h-100 d-flex flex-column align-items-center justify-content-center">
-                                    <div class="feature-icon bg-light text-primary rounded-3 mb-2"><i class="bi bi-people-fill"></i></div>
-                                    <h4 class="fw-bold text-dark m-0">250+</h4>
-                                    <small class="text-uppercase text-muted fw-bold d-block mt-1" style="font-size: 0.7rem;">Students Taught</small>
+                                    <div class="feature-icon bg-light text-success rounded-3 mb-2"><i class="bi bi-star-fill"></i></div>
+                                    <h5 class="fw-bold text-dark m-0">Medicine Topper</h5>
+                                    <small class="text-muted fw-bold d-block mt-1">Internal Medicine Laurels</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="p-4 bg-white shadow-sm border rounded-4 text-center h-100 d-flex flex-column align-items-center justify-content-center">
-                                    <div class="feature-icon bg-light text-primary rounded-3 mb-2"><i class="bi bi-hourglass-split"></i></div>
-                                    <h4 class="fw-bold text-dark m-0">3+ Mos</h4>
-                                    <small class="text-uppercase text-muted fw-bold d-block mt-1" style="font-size: 0.7rem;">Program Duration</small>
+                                    <div class="feature-icon bg-light text-primary rounded-3 mb-2"><i class="bi bi-calendar-check-fill"></i></div>
+                                    <h5 class="fw-bold text-dark m-0">4-Month Track</h5>
+                                    <small class="text-muted fw-bold d-block mt-1">Launching June 13, 2026</small>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="p-4 bg-white shadow-sm border rounded-4 text-center h-100 d-flex flex-column align-items-center justify-content-center">
-                                    <div class="feature-icon bg-light text-primary rounded-3 mb-2"><i class="bi bi-journal-check"></i></div>
-                                    <h4 class="fw-bold text-dark m-0">12+</h4>
-                                    <small class="text-uppercase text-muted fw-bold d-block mt-1" style="font-size: 0.7rem;">Structured Sessions</small>
+                                    <div class="feature-icon bg-light text-info rounded-3 mb-2"><i class="bi bi-clock-history"></i></div>
+                                    <h5 class="fw-bold text-dark m-0">100% Free</h5>
+                                    <small class="text-muted fw-bold d-block mt-1">Weekend & Repeat Options</small>
                                 </div>
                             </div>
                         </div>
@@ -105,174 +115,175 @@
 
         <section id="curriculum" class="py-5 bg-light border-top border-bottom">
             <div class="container px-5 my-5">
-                <div class="text-center mb-5">
-                    <h2 class="display-5 fw-bolder mb-2"><span class="text-gradient d-inline">Syllabus & Structured Modules</span></h2>
-                    <p class="lead text-muted mb-0">Sequential planning organized over multiple months to demonstrate educational program structure.</p>
+                <div class="text-center max-w-3xl mx-auto mb-5">
+                    <h2 class="display-5 fw-bolder mb-2"><span class="text-gradient d-inline">Program Structure & Sub-Series</span></h2>
+                    <p class="lead text-muted">Sessions run on weekends in concise 1-hour blocks. To accommodate irregular clinical rotations and night shifts, sessions include repeating options so you can stay on track.</p>
+                    
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3 justify-content-center">
+                        <span class="bg-dark text-white timezone-badge"><i class="bi bi-globe me-1"></i>Standard Session Times:</span>
+                        <span class="bg-secondary text-white timezone-badge">13:00 BST (UK)</span>
+                        <span class="bg-secondary text-white timezone-badge">16:00 GST (UAE)</span>
+                        <span class="bg-secondary text-white timezone-badge">17:30 IST (India)</span>
+                    </div>
                 </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-10">
-                        <div class="card overflow-hidden shadow-sm mb-5 bg-white">
-                            <div class="card-body p-5">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <span class="badge bg-success-soft text-success border border-success px-3 py-2 fw-bold">Week 5 (Upcoming)</span>
-                                    <span class="text-muted small"><i class="bi bi-clock me-1"></i>14:00 GMT | MS Teams Live</span>
+                
+                <div class="row gx-5 justify-content-center mt-5">
+                    <div class="col-lg-10">
+                        
+                        <div class="card bg-white shadow-sm mb-4">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="d-md-flex justify-content-between align-items-start mb-4">
+                                    <div>
+                                        <span class="badge bg-primary-soft text-primary border border-primary px-2.5 py-1.5 fw-bold mb-2 d-inline-block">Module A</span>
+                                        <h3 class="fw-bolder text-dark">Clinical Interpretation Sub-Series</h3>
+                                    </div>
+                                    <span class="text-muted small fw-bold text-uppercase tracking-wider"><i class="bi bi-play-circle-fill me-1 text-success"></i>Starts June 13</span>
                                 </div>
-                                <h3 class="fw-bolder">Cranial Nerve Examinations & Localization</h3>
-                                <p class="text-muted">Comprehensive evaluation targeting brainstem localization, mapped lesions, and examination steps required for clinical certifications and the MRCP PACES framework.</p>
-                                <button onclick="openSignupModal('Cranial Nerve Examinations & Localization')" class="btn btn-primary rounded-3 mt-2 px-4 py-2">Reserve a Spot & Get Live Link</button>
+                                <p class="text-muted mb-4">Mastering core diagnostic metrics routinely encountered on acute post-take rounds and morning clinical reporting.</p>
+                                
+                                <div class="accordion" id="moduleAAccordion">
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Topic 1: Reading Chest X-Rays (2 Sessions)
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#moduleAAccordion">
+                                            <div class="accordion-body text-secondary small">
+                                                A structured approach to lines, tubes, hidden fields, and airspace pathologies.
+                                                <div class="mt-2 pt-2 border-top">
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 1:</strong> Saturday, June 13, 2026 <span class="text-muted">| Live Interactive Block</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 1 Repeat:</strong> Sunday, June 14, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span><br>
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 2:</strong> Saturday, June 20, 2026 <span class="text-muted">| Advanced Pathology Cases</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 2 Repeat:</strong> Sunday, June 21, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Topic 2: Stroke Localization (2 Sessions)
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#moduleAAccordion">
+                                            <div class="accordion-body text-secondary small">
+                                                Mapping vascular syndromes, brainstem tracts, and localizing lesions for rapid clinical management.
+                                                <div class="mt-2 pt-2 border-top">
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 1:</strong> Saturday, June 27, 2026 <span class="text-muted">| Anterior vs Posterior Circulation</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 1 Repeat:</strong> Sunday, June 28, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span><br>
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 2:</strong> Saturday, July 4, 2026 <span class="text-muted">| Brainstem Syndromes Made Easy</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 2 Repeat:</strong> Sunday, July 5, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Topic 3: ECG Interpretation Essentials (3 Sessions)
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#moduleAAccordion">
+                                            <div class="accordion-body text-secondary small">
+                                                Systematic evaluation of rhythms, axis shifts, ischemia mimics, and electrolyte abnormalities.
+                                                <div class="mt-2 pt-2 border-top">
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 1:</strong> Saturday, July 11, 2026 <span class="text-muted">| Axis, Rate, & Rhythms</span><br>
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 2:</strong> Saturday, July 18, 2026 <span class="text-muted">| Ischemia & MI Mimics</span><br>
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 3:</strong> Saturday, July 25, 2026 <span class="text-muted">| Arrhythmias & Heart Blocks</span><br>
+                                                    <span class="text-info text-xs font-weight-bold"><i class="bi bi-info-circle me-1"></i>Corresponding Sunday repeat options run at identical times.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                Topic 4: ABG Interpretation (2 Sessions)
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#moduleAAccordion">
+                                            <div class="accordion-body text-secondary small">
+                                                Deconstructing compound disruptions, calculating compensation, and guiding acute ventilation logic.
+                                                <div class="mt-2 pt-2 border-top">
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 1:</strong> Saturday, August 1, 2026 <span class="text-muted">| Simple Acid-Base Disorders</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 1 Repeat:</strong> Sunday, August 2, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span><br>
+                                                    <strong><i class="bi bi-calendar-event me-1 text-primary"></i>Session 2:</strong> Saturday, August 8, 2026 <span class="text-muted">| Mixed & Triple Disorders</span><br>
+                                                    <strong><i class="bi bi-arrow-repeat me-1 text-info"></i>Session 2 Repeat:</strong> Sunday, August 9, 2026 <span class="text-muted">| Shift-Worker Repeat Option</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div> <a href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank" class="btn btn-primary rounded-3 btn-sm px-4 mt-4 w-100 py-2.5 fw-bold">Enroll in Module A via Google Form</a>
                             </div>
                         </div>
-                        <div class="card overflow-hidden shadow-sm bg-white">
-                            <div class="card-body p-5">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <span class="badge bg-success-soft text-success border border-success px-3 py-2 fw-bold">Week 6 (Upcoming)</span>
-                                    <span class="text-muted small"><i class="bi bi-clock me-1"></i>14:00 GMT | MS Teams Live</span>
+
+                        <div class="card bg-white shadow-sm mb-4">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="d-md-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <span class="badge bg-primary-soft text-primary border border-primary px-2.5 py-1.5 fw-bold mb-2 d-inline-block">Module B</span>
+                                        <h3 class="fw-bolder text-dark">Approach to Common Clinical Scenarios</h3>
+                                    </div>
+                                    <span class="text-muted small fw-medium"><i class="bi bi-calendar3 me-1"></i>Late August / Sept Focus</span>
                                 </div>
-                                <h3 class="fw-bolder">Acute Stroke Management & Thrombolysis Pathways</h3>
-                                <p class="text-muted">A case-based breakdown of hyperacute pathways, interpretation timelines for neuroimaging, and inclusion/exclusion parameters for thrombolytic interventions.</p>
-                                <button onclick="openSignupModal('Acute Stroke Management & Thrombolysis Pathways')" class="btn btn-primary rounded-3 mt-2 px-4 py-2">Reserve a Spot & Get Live Link</button>
+                                <p class="text-muted">Algorithmic approaches to confidently managing the acutely unwell patient on the wards.</p>
+                                <ul class="list-group list-group-flush mb-3 text-secondary small">
+                                    <li class="list-group-item bg-transparent ps-0"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Approach to Chest Pain</strong> (Cardiac vs. Non-Cardiac pathways)</li>
+                                    <li class="list-group-item bg-transparent ps-0"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Diabetic Emergencies</strong> (DKA insulin titration and HHS balance)</li>
+                                    <li class="list-group-item bg-transparent ps-0"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Approach to Acute Unwell Patients</strong> (Systematic assessment)</li>
+                                    <li class="list-group-item bg-transparent ps-0"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Approach to Breathlessness</strong> (Differentiating acute respiratory etiologies)</li>
+                                </ul>
+                                <a href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank" class="btn btn-outline-primary rounded-3 btn-sm px-4">Register Interest for Module B</a>
                             </div>
                         </div>
+
+                        <div class="card bg-white shadow-sm text-muted">
+                            <div class="card-body p-4 p-md-5 bg-light">
+                                <span class="badge bg-secondary text-white px-2.5 py-1.5 fw-bold mb-2 d-inline-block">Module C</span>
+                                <h3 class="fw-bolder text-secondary">Neurology Series</h3>
+                                <p class="small m-0"><i class="bi bi-clock-history me-1"></i>Advanced neurology tracker following the core intern blocks. Coming soon for October.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="archive" class="py-5 bg-white">
+        <section id="resources" class="py-5 bg-white">
             <div class="container px-5 my-5">
                 <div class="mb-4">
-                    <h3 class="fw-bolder"><i class="bi bi-folder-symlink text-primary me-2"></i>Chronological Lecture Archive</h3>
-                    <p class="text-muted small">Long-term timeline data validating active educational leadership over a sequential period.</p>
+                    <h3 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Teaching Repository & Roster Log</h3>
+                    <p class="text-muted small">As classes roll out sequentially starting June 13th, verified attendee matrix parameters, session slide resources, and clinical worksheets will be shared transparently below.</p>
                 </div>
-                <div class="card shadow-sm border">
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle mb-0">
-                            <thead class="table-light text-uppercase small text-muted">
-                                <tr>
-                                    <th class="ps-4 py-3">Timeline Matrix</th>
-                                    <th class="py-3">Topic & Core Clinical Competency</th>
-                                    <th class="py-3">Attendance Volume</th>
-                                    <th class="pe-4 py-3 text-end">Evidence Logs</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-secondary small">
-                                <tr>
-                                    <td class="ps-4 fw-bold text-dark">Week 4 (Prior Month)</td>
-                                    <td class="fw-bold text-dark">Approach to Altered Mental Status & GCS Mimics</td>
-                                    <td>34 Attendees (International)</td>
-                                    <td class="pe-4 text-end"><a href="#" class="text-decoration-none"><i class="bi bi-file-earmark-pdf me-1"></i>Download Slides</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-4 fw-bold text-dark">Week 3 (Prior Month)</td>
-                                    <td class="fw-bold text-dark">Status Epilepticus Protocols & EEG Basics</td>
-                                    <td>41 Attendees (International)</td>
-                                    <td class="pe-4 text-end"><a href="#" class="text-decoration-none"><i class="bi bi-file-earmark-pdf me-1"></i>Download Slides</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-4 fw-bold text-dark">Week 2 (2 Mos Prior)</td>
-                                    <td class="fw-bold text-dark">Lumbar Puncture: Indications & CSF Analysis</td>
-                                    <td>29 Attendees (International)</td>
-                                    <td class="pe-4 text-end"><a href="#" class="text-decoration-none"><i class="bi bi-file-earmark-pdf me-1"></i>Download Slides</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="card text-center p-5 bg-light border-dashed">
+                    <div class="card-body py-4">
+                        <div class="fs-1 text-muted mb-3"><i class="bi bi-folder-plus"></i></div>
+                        <h5 class="fw-bold text-dark">Logs Update Post-Session</h5>
+                        <p class="text-muted small max-w-sm mx-auto">This series launches live on June 13, 2026. Handout indices and verified curriculum records will appear here as each module wraps up.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="feedback" class="py-5 bg-light border-top">
+        <section id="feedback" class="py-5 bg-gradient-primary-to-secondary text-white border-top">
             <div class="container px-5 my-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <div class="card p-5 shadow border-0 rounded-4 bg-white">
-                            <div class="text-center mb-4">
-                                <div class="feature-icon bg-primary text-white rounded-3 mb-3"><i class="bi bi-clipboard-data"></i></div>
-                                <h2 class="fw-bolder">Post-Session Evaluation Report</h2>
-                                <p class="text-muted">Standardized JRCPTB metrics for verification parameters.</p>
-                            </div>
-                            
-                            <form action="https://api.web3forms.com/submit" method="POST">
-                                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
-                                <input type="hidden" name="subject" value="New Structured Portfolio Evaluation Form Submission" />
-                                <input type="checkbox" name="botcheck" class="d-none" style="display: none;" />
-
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-uppercase text-muted">Attendee Name / Initials</label>
-                                        <input type="text" name="Student Name" class="form-control p-3 rounded-3 shadow-sm border" placeholder="Dr. Jane Doe (Optional)" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold text-uppercase text-muted">Training Grade / Year</label>
-                                        <select name="Student Grade" required class="form-select p-3 rounded-3 shadow-sm border bg-white">
-                                            <option value="">Select Level</option>
-                                            <option value="Final Year Medical Student">Final Year Medical Student</option>
-                                            <option value="Pre-final Year Medical Student">Pre-final Year Medical Student</option>
-                                            <option value="PLAB Candidate">PLAB Candidate / Intern</option>
-                                            <option value="Junior Doctor">Junior Doctor</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="form-label small fw-bold text-uppercase text-muted">Evaluated Lecture Topic</label>
-                                    <select name="Evaluated Lecture Topic" required class="form-select p-3 rounded-3 shadow-sm border bg-white">
-                                        <option value="Cranial Nerve Examinations & Localization">Cranial Nerve Examinations & Localization</option>
-                                        <option value="Acute Stroke Management">Acute Stroke Management & Thrombolysis Pathways</option>
-                                        <option value="Approach to Altered Mental Status">Approach to Altered Mental Status & GCS Mimics</option>
-                                        <option value="Status Epilepticus Protocols">Status Epilepticus Protocols & EEG Basics</option>
-                                    </select>
-                                </div>
-
-                                <div class="p-4 bg-light border rounded-3 mb-4">
-                                    <h6 class="fw-bold mb-3 text-dark text-uppercase small tracking-wide">Structured Numeric Performance Ratings</h6>
-                                    
-                                    <div class="d-sm-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                                        <span class="small text-muted fw-bold">Clarity of Explanation:</span>
-                                        <select name="Rating: Clarity" required class="form-select form-select-sm w-auto bg-white border">
-                                            <option value="5">5 - Excellent</option>
-                                            <option value="4">4 - Very Good</option>
-                                            <option value="3">3 - Satisfactory</option>
-                                            <option value="2">2 - Fair</option>
-                                            <option value="1">1 - Poor</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="d-sm-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                                        <span class="small text-muted fw-bold">Clinical & Assessment Relevance:</span>
-                                        <select name="Rating: Clinical Relevance" required class="form-select form-select-sm w-auto bg-white border">
-                                            <option value="5">5 - Excellent</option>
-                                            <option value="4">4 - Very Good</option>
-                                            <option value="3">3 - Satisfactory</option>
-                                            <option value="2">2 - Fair</option>
-                                            <option value="1">1 - Poor</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="d-sm-flex align-items-center justify-content-between">
-                                        <span class="small text-muted fw-bold">Pace of Delivery:</span>
-                                        <select name="Rating: Pace" required class="form-select form-select-sm w-auto bg-white border">
-                                            <option value="5">5 - Excellent</option>
-                                            <option value="4">4 - Very Good</option>
-                                            <option value="3">3 - Satisfactory</option>
-                                            <option value="2">2 - Fair</option>
-                                            <option value="1">1 - Poor</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold text-uppercase text-muted">What did the presenter do well?</label>
-                                    <textarea name="Qualitative: Strengths" rows="3" required class="form-control rounded-3 border" placeholder="Provide details on delivery, visuals, and structure..."></textarea>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="form-label small fw-bold text-uppercase text-muted">Constructive suggestions for improvement:</label>
-                                    <textarea name="Qualitative: Improvements" rows="3" required class="form-control rounded-3 border" placeholder="What actionable changes would improve value?"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary w-100 p-3 rounded-3 fw-bold shadow">Submit Evaluation Artifact</button>
-                            </form>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="feature-icon bg-white text-primary rounded-3 mb-3"><i class="bi bi-clipboard2-check"></i></div>
+                        <h2 class="fw-bolder">Session Evaluation Feedback</h2>
+                        <p class="lead text-white-50 mb-4">To help optimize these modules and maintain high teaching quality, please submit your feedback via our structured Google Feedback Form after attending a session.</p>
+                        <a class="btn btn-outline-light btn-lg px-4 py-3 rounded-4 fw-bold" href="YOUR_GOOGLE_FEEDBACK_FORM_LINK_HERE" target="_blank">
+                            Open Google Feedback Form<i class="bi bi-box-arrow-up-right ms-2"></i>
+                        </a>
+                        <div class="mt-3 small text-white-50" style="font-size: 0.75rem;">
+                            The evaluation form measures core metrics including Explanation Clarity, Clinical Relevance, and Delivery Pace.
                         </div>
                     </div>
                 </div>
@@ -283,58 +294,12 @@
     <footer class="bg-dark py-4 mt-auto border-top border-secondary">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0 text-white-50">&copy; 2026 Dr. Maritta Puthusserry. Structured Medical Teaching Registry.</div></div>
-                <div class="col-auto"><div class="small m-0 text-white-50 text-uppercase" style="font-size: 0.65rem;">Mapped to UK JRCPTB Portfolio Validation Standards</div></div>
+                <div class="col-auto"><div class="small m-0 text-white-50">&copy; 2026 Dr. Maritta Puthusserry. All Rights Reserved.</div></div>
+                <div class="col-auto"><div class="small m-0 text-white-50 text-uppercase" style="font-size: 0.65rem;">Structured Medical Peer-Teaching Registry</div></div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 shadow border-0">
-                <div class="modal-header bg-dark text-white p-4">
-                    <h5 class="modal-title fw-bold" id="signupModalLabel">Class Seat Registration</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
-                        <input type="hidden" name="subject" value="New Structured Program Lecture Registration Logged" />
-                        <input type="hidden" id="modalTargetClass" name="Target Selected Session" value="" />
-
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted text-uppercase">Full Name</label>
-                            <input type="text" name="Full Name" required class="form-control p-2 border rounded-3 shadow-sm" placeholder="Dr. John Doe" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted text-uppercase">Email Address</label>
-                            <input type="email" name="Email" required class="form-control p-2 border rounded-3 shadow-sm" placeholder="john.doe@nhs.net" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted text-uppercase">Medical Graduation Status</label>
-                            <input type="text" name="Graduation Status" required class="form-control p-2 border rounded-3 shadow-sm" placeholder="e.g., Year 5 Student, PLAB Candidate, FY1" />
-                        </div>
-
-                        <div class="alert alert-info border-0 shadow-sm d-flex small text-primary p-3 rounded-3 align-items-start mb-4">
-                            <i class="bi bi-info-circle-fill me-2 fs-6"></i>
-                            <div>Upon submission, your details will register chronologically on the attendance log, and the system redirects you to the live MS Teams link.</div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100 p-2.5 rounded-3 fw-bold shadow">Confirm Seat & Log Attendance</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openSignupModal(className) {
-            document.getElementById('modalTargetClass').value = className;
-            var myModal = new bootstrap.Modal(document.getElementById('signupModal'));
-            myModal.show();
-        }
-    </script>
 </body>
 </html>
