@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     
-    <title>The Master Intern Series | Dr. Maritta Bobby Puthusserry</title>
+    <title>The Master Intern Series | Dr. Maritta Puthusserry</title>
     <meta name="title" content="The Master Intern Series | Dr. Maritta Puthusserry" />
-    <meta name="description" content="A 4-month clinical peer-teaching initiative by Dr. Maritta Bobby Puthusserry (AIIMS Bathinda Graduate & Internal Medicine Topper) designed to help final-year medical students and interns transition confidently into busy hospital wards." />
+    <meta name="description" content="A 4-month clinical peer-teaching initiative by Dr. Maritta Puthusserry (AIIMS Bathinda Graduate & Internal Medicine Topper) designed to help final-year medical students and interns transition confidently into busy hospital wards." />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://marittaelvis.github.io" />
@@ -72,7 +72,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top shadow-sm">
             <div class="container px-5">
                 <a class="navbar-brand font-weight-bold" href="#about">
-                    <span class="fw-bolder text-primary"><i class="bi bi-heart-pulse-fill me-2"></i>Dr. Maritta B P</span>
+                    <span class="fw-bolder text-primary"><i class="bi bi-heart-pulse-fill me-2"></i>Dr. Maritta Puthusserry</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -82,7 +82,7 @@
                         <li class="nav-item"><a class="nav-link" href="#resources">Syllabus & Logs</a></li>
                         <li class="nav-item"><a class="nav-link" href="#feedback">Submit Evaluation</a></li>
                     </ul>
-                    <a class="btn btn-primary btn-sm px-3 py-2 ms-lg-4 rounded-3" href="https://forms.gle/F76mhwCmSAnecAc77" target="_blank">Enroll for Free</a>
+                    <a class="btn btn-primary btn-sm px-3 py-2 ms-lg-4 rounded-3" href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank">Enroll for Free</a>
                 </div>
             </div>
         </nav>
@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                <a class="btn btn-primary btn-lg px-4 py-3 me-sm-3 fs-6 fw-bolder rounded-4" href="https://forms.gle/F76mhwCmSAnecAc77" target="_blank"><i class="bi bi-google me-2"></i>Register Free via Google Form</a>
+                                <a class="btn btn-primary btn-lg px-4 py-3 me-sm-3 fs-6 fw-bolder rounded-4" href="YOUR_GOOGLE_SIGNUP_FORM_LINK_HERE" target="_blank"><i class="bi bi-google me-2"></i>Register Free via Google Form</a>
                                 <a class="btn btn-outline-dark btn-lg px-4 py-3 fs-6 fw-bolder rounded-4" href="#curriculum">Explore Schedule</a>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                             <span id="currentTimezoneFlag">🇬🇧</span> 
                              Session Timezone: <span id="currentTimezoneLabel" class="fw-bold text-warning">GMT</span>
                         </span>
-                        <p class="small text-muted mt-2">Click <a href="#timezone">here</a> to change to a timezone where you're located!</p>
+                        <p class="small text-muted">Click <a href="#timezone">here</a> to change to a timezone where you're located!</p>
                     </div>
                 </div>
                 
@@ -227,10 +227,10 @@
                 <div id="timezone" class="col-auto d-flex align-items-center gap-2 border border-secondary p-2 rounded bg-opacity-10 bg-white">
                     <label for="globalTimezoneSelectorInput" class="small fw-bold text-white-50 mb-0 flex-shrink-0 text-uppercase" style="font-size:0.7rem;">Your Timezone:</label>
                     <select id="globalTimezoneSelectorInput" class="form-select form-select-sm bg-dark text-white border-0 fw-bold shadow-none" style="width: auto; cursor:pointer;" onchange="updateTimezoneContext(this.value)">
-                        <option value="UTC">🇬🇧 UK / GMT </option>
-                        <option value="Asia/Dubai">🇦🇪 UAE</option>
-                        <option value="Europe/Berlin">🇩🇪 Germany / CET</option>
-                        <option value="Asia/Kolkata">🇮🇳 India / IST</option>
+                        <option value="UTC">🇬🇧 GMT / UTC (Base Line)</option>
+                        <option value="Asia/Dubai">🇦🇪 UAE / GST (Dubai)</option>
+                        <option value="Europe/Berlin">🇩🇪 Germany / CET (Berlin)</option>
+                        <option value="Asia/Kolkata">🇮🇳 India / IST (New Delhi)</option>
                     </select>
                 </div>
             </div>
@@ -242,16 +242,92 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Format: https://docs.google.com/spreadsheets/d/{ACTUAL_SHEET_ID}/gviz/tq?tqx=out:csv&gid={GID}
+        
+        
+        const CSV_MODULES_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=0&single=true&output=csv";
+        const CSV_TOPICS_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=601406273&single=true&output=csv";
 
-        const SHEET_ID = "1Ipl1Xknt_gyKzrOvgBS3H14V1DB4CEI1G3FuTENXPds"; // Replace with your standard Sheet ID
-
-        const CSV_MODULES_LIST_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
-        const CSV_TOPICS_LIST_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=730552085`;
         // Global Storage Buckets
         let globalModulesStoreData = [];
         let globalTopicsStoreData = [];
         let currentActiveTimezone = "UTC";
+
+        const CSV_RESOURCES_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=1430825419&single=true&output=csv";
+
+        let globalResourcesStoreData = []; // Storage registry bucket for the materials tab
+
+        // UPDATE your existing loader pipeline method to include the third data sync step:
+        
+
+        // NEW: Core loop that processes and attaches materials rows down to your UI viewport layout
+        function renderResourcesInterfaceEngine() {
+            const resourceContainer = document.getElementById("resourcesWrapperContainer");
+            
+            if (!globalResourcesStoreData || globalResourcesStoreData.length === 0) {
+                resourceContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="p-4 text-center bg-light rounded text-muted small">
+                            <i class="bi bi-box-seam d-block fs-3 mb-2"></i>Handouts are under review and will appear sequentially as sessions launch.
+                        </div>
+                    </div>`;
+                return;
+            }
+
+            resourceContainer.innerHTML = ""; // Clear current loading text out
+
+            globalResourcesStoreData.forEach((rowItem) => {
+                const materialTitle = rowItem["Module"] || "General Reference Guide";
+                const slidesUrlLink = rowItem["Slides URL"];
+                const notesUrlLink = rowItem["Notes URL"];
+
+                // Only generate cards if at least one download link target exists in the sheet cell layout
+                const hasSlides = (slidesUrlLink && slidesUrlLink.trim() !== "" && slidesUrlLink.trim().toLowerCase() !== "tbd");
+                const hasNotes = (notesUrlLink && notesUrlLink.trim() !== "" && notesUrlLink.trim().toLowerCase() !== "tbd");
+
+                if (!hasSlides && !hasNotes) return; // Skip display rows placeholder entries
+
+                let functionalActionButtonsGroupHtml = "";
+                
+                if (hasSlides) {
+                    functionalActionButtonsGroupHtml += `
+                        <a href="${slidesUrlLink.trim()}" target="_blank" class="btn btn-sm btn-outline-dark px-3 py-1.5 fw-bold text-uppercase d-inline-flex align-items-center gap-1" style="font-size:0.7rem;">
+                            <i class="bi bi-file-earmark-ppt text-danger"></i> Slides Deck
+                        </a>
+                    `;
+                }
+                if (hasNotes) {
+                    functionalActionButtonsGroupHtml += `
+                        <a href="${notesUrlLink.trim()}" target="_blank" class="btn btn-sm btn-primary px-3 py-1.5 fw-bold text-uppercase d-inline-flex align-items-center gap-1 ms-2" style="font-size:0.7rem;">
+                            <i class="bi bi-journal-text"></i> Notes
+                        </a>
+                    `;
+                }
+
+                const materialCardComponentHtml = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-between shadow-sm">
+                            <div class="mb-3">
+                                <small class="text-uppercase text-primary fw-bolder tracking-wider" style="font-size:0.65rem;">Resources</small>
+                                <h6 class="fw-bold text-dark mt-1 mb-0" style="font-size:0.92rem; line-height:1.4;">${materialTitle}</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                ${functionalActionButtonsGroupHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                resourceContainer.innerHTML += materialCardComponentHtml;
+            });
+            
+            // Fallback indicator checking engine layer loops inside case blocks
+            if (resourceContainer.innerHTML === "") {
+                resourceContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="p-4 text-center bg-light rounded text-muted small">No session resources published yet. Check back following class completion.</div>
+                    </div>`;
+            }
+        }
 
         // Structured Context Timezone Dictionary Metadata Map
         const timezoneDictionaryRegistry = {
@@ -297,6 +373,20 @@
 
         // Pulls Data asynchronously from published Google Sheet targets
         function loadSyllabusDataPipeline() {
+            // Papa.parse(CSV_MODULES_LIST_URL, {
+            //     download: true, header: true, skipEmptyLines: true,
+            //     complete: function(modulesResult) {
+            //         globalModulesStoreData = modulesResult.data;
+                    
+            //         Papa.parse(CSV_TOPICS_LIST_URL, {
+            //             download: true, header: true, skipEmptyLines: true,
+            //             complete: function(topicsResult) {
+            //                 globalTopicsStoreData = topicsResult.data;
+            //                 renderSyllabusInterfaceEngine();
+            //             }
+            //         });
+            //     }
+            // });
             Papa.parse(CSV_MODULES_LIST_URL, {
                 download: true, header: true, skipEmptyLines: true,
                 complete: function(modulesResult) {
@@ -306,11 +396,23 @@
                         download: true, header: true, skipEmptyLines: true,
                         complete: function(topicsResult) {
                             globalTopicsStoreData = topicsResult.data;
-                            renderSyllabusInterfaceEngine();
+                            
+                            // NEW: Chains and processes the Resources sheet tab dataset
+                            Papa.parse(CSV_RESOURCES_LIST_URL, {
+                                download: true, header: true, skipEmptyLines: true,
+                                complete: function(resourcesResult) {
+                                    globalResourcesStoreData = resourcesResult.data;
+                                    
+                                    // Re-render both interface blocks out cleanly
+                                    renderSyllabusInterfaceEngine();
+                                    renderResourcesInterfaceEngine();
+                                }
+                            });
                         }
                     });
                 }
             });
+            
         }
 
         // Mobile-Safe Parsing / Formatting Pipeline Engine
@@ -463,109 +565,34 @@
             renderSyllabusInterfaceEngine(); // Instantly mutates layout views synchronously
         }
 
-        // Append this next link array target configuration at the top of your script block
-const CSV_RESOURCES_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTwIrRpA2K1bfsKrVMqY35QkGIShvSIfm90nexSHDG-cnQMLCzd-_RJGZBSrsoL7_mGgOh6YN8UNtpr/pub?gid=1113979243&single=true&output=csv";
-
-let globalResourcesStoreData = []; // Storage registry bucket for the materials tab
-
-// UPDATE your existing loader pipeline method to include the third data sync step:
-function loadSyllabusDataPipeline() {
-    Papa.parse(CSV_MODULES_LIST_URL, {
-        download: true, header: true, skipEmptyLines: true,
-        complete: function(modulesResult) {
-            globalModulesStoreData = modulesResult.data;
-            
-            Papa.parse(CSV_TOPICS_LIST_URL, {
+        function loadSyllabusDataPipeline() {
+            Papa.parse(CSV_MODULES_LIST_URL, {
                 download: true, header: true, skipEmptyLines: true,
-                complete: function(topicsResult) {
-                    globalTopicsStoreData = topicsResult.data;
+                complete: function(modulesResult) {
+                    globalModulesStoreData = modulesResult.data;
                     
-                    // NEW: Chains and processes the Resources sheet tab dataset
-                    Papa.parse(CSV_RESOURCES_LIST_URL, {
+                    Papa.parse(CSV_TOPICS_LIST_URL, {
                         download: true, header: true, skipEmptyLines: true,
-                        complete: function(resourcesResult) {
-                            globalResourcesStoreData = resourcesResult.data;
+                        complete: function(topicsResult) {
+                            globalTopicsStoreData = topicsResult.data;
                             
-                            // Re-render both interface blocks out cleanly
-                            renderSyllabusInterfaceEngine();
-                            renderResourcesInterfaceEngine();
+                            // NEW: Chains and processes the Resources sheet tab dataset
+                            Papa.parse(CSV_RESOURCES_LIST_URL, {
+                                download: true, header: true, skipEmptyLines: true,
+                                complete: function(resourcesResult) {
+                                    globalResourcesStoreData = resourcesResult.data;
+                                    
+                                    // Re-render both interface blocks out cleanly
+                                    renderSyllabusInterfaceEngine();
+                                    renderResourcesInterfaceEngine();
+                                }
+                            });
                         }
                     });
                 }
             });
         }
-    });
-}
 
-// NEW: Core loop that processes and attaches materials rows down to your UI viewport layout
-function renderResourcesInterfaceEngine() {
-    const resourceContainer = document.getElementById("resourcesWrapperContainer");
-    
-    if (!globalResourcesStoreData || globalResourcesStoreData.length === 0) {
-        resourceContainer.innerHTML = `
-            <div class="col-12">
-                <div class="p-4 text-center bg-light rounded text-muted small">
-                    <i class="bi bi-box-seam d-block fs-3 mb-2"></i>Handouts are under review and will appear sequentially as sessions launch.
-                </div>
-            </div>`;
-        return;
-    }
-
-    resourceContainer.innerHTML = ""; // Clear current loading text out
-
-    globalResourcesStoreData.forEach((rowItem) => {
-        const materialTitle = rowItem["Module"] || "General Reference Guide";
-        const slidesUrlLink = rowItem["Slides URL"];
-        const notesUrlLink = rowItem["Notes URL"];
-
-        // Only generate cards if at least one download link target exists in the sheet cell layout
-        const hasSlides = (slidesUrlLink && slidesUrlLink.trim() !== "" && slidesUrlLink.trim().toLowerCase() !== "tbd");
-        const hasNotes = (notesUrlLink && notesUrlLink.trim() !== "" && notesUrlLink.trim().toLowerCase() !== "tbd");
-
-        if (!hasSlides && !hasNotes) return; // Skip display rows placeholder entries
-
-        let functionalActionButtonsGroupHtml = "";
-        
-        if (hasSlides) {
-            functionalActionButtonsGroupHtml += `
-                <a href="${slidesUrlLink.trim()}" target="_blank" class="btn btn-sm btn-outline-dark px-3 py-1.5 fw-bold text-uppercase d-inline-flex align-items-center gap-1" style="font-size:0.7rem;">
-                    <i class="bi bi-file-earmark-ppt text-danger"></i> Slides Deck
-                </a>
-            `;
-        }
-        if (hasNotes) {
-            functionalActionButtonsGroupHtml += `
-                <a href="${notesUrlLink.trim()}" target="_blank" class="btn btn-sm btn-primary px-3 py-1.5 fw-bold text-uppercase d-inline-flex align-items-center gap-1 ms-2" style="font-size:0.7rem;">
-                    <i class="bi bi-journal-text"></i> Notes
-                </a>
-            `;
-        }
-
-        const materialCardComponentHtml = `
-            <div class="col-md-6 col-lg-4">
-                <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-between shadow-sm">
-                    <div class="mb-3">
-                        <small class="text-uppercase text-primary fw-bolder tracking-wider" style="font-size:0.65rem;">Resources</small>
-                        <h6 class="fw-bold text-dark mt-1 mb-0" style="font-size:0.92rem; line-height:1.4;">${materialTitle}</h6>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        ${functionalActionButtonsGroupHtml}
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        resourceContainer.innerHTML += materialCardComponentHtml;
-    });
-    
-    // Fallback indicator checking engine layer loops inside case blocks
-    if (resourceContainer.innerHTML === "") {
-        resourceContainer.innerHTML = `
-            <div class="col-12">
-                <div class="p-4 text-center bg-light rounded text-muted small">No session resources published yet. Check back following class completion.</div>
-            </div>`;
-    }
-}
 
     </script>
 </body>
