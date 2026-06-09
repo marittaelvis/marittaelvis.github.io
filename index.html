@@ -242,9 +242,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const CSV_MODULES_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTwIrRpA2K1bfsKrVMqY35QkGIShvSIfm90nexSHDG-cnQMLCzd-_RJGZBSrsoL7_mGgOh6YN8UNtpr/pub?gid=0&single=true&output=csv";
-        const CSV_TOPICS_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTwIrRpA2K1bfsKrVMqY35QkGIShvSIfm90nexSHDG-cnQMLCzd-_RJGZBSrsoL7_mGgOh6YN8UNtpr/pub?gid=730552085&single=true&output=csv";
+        // Format: https://docs.google.com/spreadsheets/d/{ACTUAL_SHEET_ID}/gviz/tq?tqx=out:csv&gid={GID}
 
+        const SHEET_ID = "1Ipl1Xknt_gyKzrOvgBS3H14V1DB4CEI1G3FuTENXPds"; // Replace with your standard Sheet ID
+
+        const CSV_MODULES_LIST_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
+        const CSV_TOPICS_LIST_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=730552085`;
         // Global Storage Buckets
         let globalModulesStoreData = [];
         let globalTopicsStoreData = [];
