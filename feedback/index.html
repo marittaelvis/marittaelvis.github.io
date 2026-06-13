@@ -3,29 +3,225 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Session Evaluation | The Master Intern Series</title>
     
-    <title>The Master Intern Series | Feedback</title>
-    <meta name="title" content="Feedback | The Master Intern Series | Dr. Maritta Puthusserry" />
-    <meta name="description" content="A 4-month clinical peer-teaching initiative by Dr. Maritta Puthusserry (AIIMS Bathinda Graduate & Internal Medicine Topper) designed to help final-year medical students and interns transition confidently into busy hospital wards." />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://marittaelvis.github.io/feedback" />
-    <link rel="shortcut icon" href="/assets/doc.ico" type="image/x-icon">
-    <meta property="og:title" content="The Master Intern Series | Dr. Maritta Puthusserry" />
-    <meta property="og:description" content="A 4-month clinical peer-teaching initiative by Dr. Maritta Puthusserry to help final-year medical students and interns transition confidently into busy hospital wards." />
-    <meta property="og:image" content="https://marittaelvis.github.io/assets/banner.png" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f6f9; color: #333; }
+        .card { border-radius: 1rem; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
+        .topic-row { border-radius: 0.75rem; background-color: #ffffff; border: 1px solid #e3e6ec; transition: all 0.2s ease; }
+        .topic-row.active-today { border-left: 5px solid #198754; background-color: #f8fff9; }
+        .topic-row.past-open { border-left: 5px solid #6c757d; background-color: #fcfdfe; }
+        .module-badge { font-size: 0.7rem; padding: 0.25rem 0.5rem; font-weight: 700; border-radius: 0.35rem; }
+        .status-badge { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.02em; }
+        .search-input:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15); }
+    </style>
 </head>
-<body>
-    <div style="text-align: center;">
-        <h3>Redirecting to the Session Evaluation Form</h3>
-        <p>Please wait while we redirect you to the form. . .</p>
-        <p> or <a id="redirect" href="https://forms.gle/nn6mNzfk9gZGuhfLA">click here</a> to head over now</p>
+<body class="py-4 py-md-5">
+
+    <div class="container" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <div class="d-inline-flex bg-primary text-white p-3 rounded-circle mb-3">
+                <i class="bi bi-clipboard2-check fs-3"></i>
+            </div>
+            <h1 class="fw-bold h2">Post-Session Evaluation Hub</h1>
+            <p class="text-muted small px-3">
+                Feedback lines open automatically on the calendar day of the live module. Past sessions remain open permanently for late submission tracking.
+            </p>
+            <div class="badge bg-dark px-3 py-2 mt-1">
+                <i class="bi bi-calendar3 me-1 text-warning"></i> Your Local Date: <span id="localTodayLabel" class="fw-bold">...</span>
+            </div>
+        </div>
+
+        <div class="card bg-white p-3 mb-4 border-0 shadow-sm">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                <input type="text" id="moduleSearchInput" class="form-control p-2.5 border-start-0 search-input" placeholder="Search by topic title or module (e.g., 'Module A', 'ECG')..." onkeyup="filterFeedbackTopics()" disabled />
+            </div>
+        </div>
+
+        <div class="card bg-white p-3 p-md-4">
+            <h5 class="fw-bold mb-4 text-secondary small text-uppercase tracking-wider">Syllabus Evaluation Registry</h5>
+            <div id="feedbackTopicsContainer" class="d-flex flex-column gap-3">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
+                    <p class="text-muted small mt-2 m-0">Synchronizing timeline validation indices...</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-5 text-muted small">
+            <p class="m-0">&copy; 2026 Dr. Maritta Puthusserry. Master Intern Evaluation Engine.</p>
+        </footer>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js"></script>
+
+    <script>
+        const CSV_FEEDBACK_TARGET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=601406273&single=true&output=csv";
+        const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdUbI5Lrhs77RxrUXmuZ6B0PJ_PglGHJlINkEgsjQKDGuADOw/viewform?usp=pp_url&entry.296850802=";
+
+        // Keep a copy of rows globally so the search function can filter them instantly
+        let cachedFeedbackRowsData = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const localUserTimeContext = luxon.DateTime.now();
+            document.getElementById("localTodayLabel").textContent = localUserTimeContext.toFormat("cccc, d LLLL yyyy");
+            
+            fetchFeedbackScheduleRegistry();
+        });
+
+        function fetchFeedbackScheduleRegistry() {
+            Papa.parse(CSV_FEEDBACK_TARGET_URL, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(parsedDataResult) {
+                    cachedFeedbackRowsData = parsedDataResult.data;
+                    document.getElementById("moduleSearchInput").disabled = false; // Enable search once loaded
+                    buildFeedbackRegistryInterface(cachedFeedbackRowsData);
+                },
+                error: function() {
+                    document.getElementById("feedbackTopicsContainer").innerHTML = `
+                        <div class="alert alert-danger small text-center m-0">
+                            <i class="bi bi-exclamation-triangle-fill me-1"></i> Failed to pull current evaluation indexes.
+                        </div>`;
+                }
+            });
+        }
+
+        function evaluateFeedbackStatus(dateStr1, dateStr2, localUserTime) {
+            const parseTime = (s) => {
+                if (!s || s.trim() === "" || s.trim().toUpperCase() === "TBD" || s.trim().toUpperCase() === "NAN") return null;
+                let dt = luxon.DateTime.fromFormat(s.trim(), "yyyy-MM-dd HH:mm", { zone: "utc" });
+                return dt.isValid ? dt.setZone(localUserTime.zoneName) : null;
+            };
+
+            let class1Local = parseTime(dateStr1);
+            let class2Local = parseTime(dateStr2);
+
+            if (!class1Local && !class2Local) return "LOCKED";
+
+            let todayStart = localUserTime.startOf("day");
+            let hasHappenedOrIsToday = false;
+            let isLiveToday = false;
+
+            if (class1Local) {
+                if (localUserTime.hasSame(class1Local, "day")) isLiveToday = true;
+                if (todayStart >= class1Local.startOf("day")) hasHappenedOrIsToday = true;
+            }
+            if (class2Local) {
+                if (localUserTime.hasSame(class2Local, "day")) isLiveToday = true;
+                if (todayStart >= class2Local.startOf("day")) hasHappenedOrIsToday = true;
+            }
+
+            if (isLiveToday) return "ACTIVE_TODAY";
+            if (hasHappenedOrIsToday) return "PAST_OPEN";
+            return "LOCKED";
+        }
+
+        function buildFeedbackRegistryInterface(dataRows) {
+            const container = document.getElementById("feedbackTopicsContainer");
+            const localUserTime = luxon.DateTime.now();
+            
+            if (!dataRows || dataRows.length === 0) {
+                container.innerHTML = `<div class="p-4 text-center bg-light rounded text-muted small">No matching sessions found.</div>`;
+                return;
+            }
+
+            container.innerHTML = ""; 
+
+            dataRows.forEach((row) => {
+                const moduleCode = row["Module"] || "A";
+                const topicTitle = row["Topic Title"] || "Untitled Topic";
+                const topicDescription = row["Topic Description"] || "";
+                const dateTimeRaw = row["Date Time"];
+                const repeatTimeRaw = row["Date Time (Repeat)"];
+
+                const currentStatus = evaluateFeedbackStatus(dateTimeRaw, repeatTimeRaw, localUserTime);
+                const isOpenForEvaluation = (currentStatus === "ACTIVE_TODAY" || currentStatus === "PAST_OPEN");
+
+                const prefilledFormEndpointUrl = GOOGLE_FORM_BASE_URL + encodeURIComponent(topicTitle);
+
+                let rowContextClass = "p-3 topic-row d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3";
+                let statusBadgeHtml = "";
+                let actionButtonHtml = "";
+
+                if (isOpenForEvaluation) {
+                    if (currentStatus === "ACTIVE_TODAY") {
+                        rowContextClass += " active-today shadow-sm";
+                        statusBadgeHtml = '<span class="badge bg-success status-badge"><i class="bi bi-lightning-charge-fill me-0.5"></i> Active Today</span>';
+                    } else {
+                        rowContextClass += " past-open shadow-sm";
+                        statusBadgeHtml = '<span class="badge bg-secondary status-badge" style="background-color: #6c757d !important;"><i class="bi bi-clock-history me-0.5"></i> Past Session (Open)</span>';
+                    }
+
+                    actionButtonHtml = `
+                        <a href="${prefilledFormEndpointUrl}" target="_blank" class="btn btn-success px-4 py-2 fw-bold text-uppercase rounded-3 d-flex align-items-center justify-content-center gap-2 small shadow-sm" style="font-size:0.75rem; min-width:160px;">
+                            <i class="bi bi-box-arrow-up-right"></i> Provide Feedback
+                        </a>
+                    `;
+                } else {
+                    statusBadgeHtml = '<span class="badge bg-light text-muted border status-badge"><i class="bi bi-lock-fill me-0.5"></i> Upcoming</span>';
+                    actionButtonHtml = `
+                        <button disabled class="btn btn-light text-muted px-4 py-2 border rounded-3 small text-uppercase fw-semibold" style="font-size:0.72rem; min-width:160px;">
+                            Lines Closed
+                        </button>
+                    `;
+                }
+
+                const topicItemComponentHtml = `
+                    <div class="${rowContextClass}">
+                        <div class="pe-sm-2">
+                            <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-20 module-badge">MODULE ${moduleCode}</span>
+                                ${statusBadgeHtml}
+                            </div>
+                            <h6 class="fw-bold text-dark m-0 mb-1" style="font-size:0.95rem;">${topicTitle}</h6>
+                            ${topicDescription ? `<p class="text-muted small m-0 mb-1 card-text" style="font-size:0.82rem; line-height:1.45;">${topicDescription}</p>` : ''}
+                        </div>
+                        <div class="flex-shrink-0 d-flex align-items-center">
+                            ${actionButtonHtml}
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += topicItemComponentHtml;
+            });
+        }
+
+        // Live Real-Time Filtering Function
+        function filterFeedbackTopics() {
+            const query = document.getElementById("moduleSearchInput").value.toLowerCase().trim();
+            
+            // If search bar is blank, show everything raw
+            if (query === "") {
+                buildFeedbackRegistryInterface(cachedFeedbackRowsData);
+                return;
+            }
+
+            // Filter row metrics data matching query terms
+            const filteredRows = cachedFeedbackRowsData.filter(row => {
+                const title = (row["Topic Title"] || "").toLowerCase();
+                const description = (row["Topic Description"] || "").toLowerCase();
+                const modLetter = (row["Module"] || "").toLowerCase();
+                const modCombinedString = `module ${modLetter}`; // catches searches for "Module A"
+
+                return title.includes(query) || 
+                       description.includes(query) || 
+                       modLetter === query || 
+                       modCombinedString.includes(query);
+            });
+
+            buildFeedbackRegistryInterface(filteredRows);
+        }
+    </script>
 </body>
-<script>
-    setTimeout(()=>{
-        document.location.replace(document.querySelector('#redirect').href);
-    },3000)
-</script>
 </html>
