@@ -216,6 +216,23 @@
                 </div>
             </div>
         </section>
+
+        <section id="testimonials" class="py-5 bg-light border-top border-bottom">
+            <div class="container px-5 my-5">
+                <div class="text-center max-w-3xl mx-auto mb-5">
+                    <h2 class="display-5 fw-bolder mb-2"><span class="text-gradient d-inline">Student Testimonials</span></h2>
+                    <p class="lead text-muted small">Feedback submitted by medical students and clinical interns across global cohorts.</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center" id="testimonialsWrapperContainer">
+                    <div class="col-10 text-center py-4">
+                        <div class="spinner-border spinner-border-sm text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                        <p class="text-muted small mt-2 m-0">Pulling latest student reviews...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-dark py-5 mt-auto border-top border-secondary text-white">
@@ -254,7 +271,8 @@
         let currentActiveTimezone = "UTC";
 
         const CSV_RESOURCES_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=1430825419&single=true&output=csv";
-
+        const CSV_TESTIMONIALS_LIST_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxA15mAShGjlNunP9bW3I5lJYMd73ecjNi3HplpQMN1sLp_Vk-VxTZdNpUMkX6lHvw24_rX0_u6M_7/pub?gid=2033859224&single=true&output=csv";
+        let globalTestimonialsStoreData = []; // Array registry bucket for comments
         let globalResourcesStoreData = []; // Storage registry bucket for the materials tab
 
         // UPDATE your existing loader pipeline method to include the third data sync step:
@@ -416,6 +434,58 @@
             
         }
 
+        function renderTestimonialsInterfaceEngine() {
+    const testimonialContainer = document.getElementById("testimonialsWrapperContainer");
+    
+    if (!globalTestimonialsStoreData || globalTestimonialsStoreData.length === 0) {
+        testimonialContainer.innerHTML = `
+            <div class="col-12 text-center text-muted small py-3">
+                <i class="bi bi-chat-square-text d-block fs-3 mb-2"></i>Testimonials will appear once evaluations process.
+            </div>`;
+        return;
+    }
+
+    testimonialContainer.innerHTML = ""; // Clear loader text
+
+    // CHANGED: Removed .slice(-3) so it reverses and displays ALL rows instead of capping it at 3
+    const displayLimitRows = globalTestimonialsStoreData.slice().reverse();
+
+    displayLimitRows.forEach((rowItem) => {
+        const studentCommentText = rowItem["Comment"];
+        
+        // Skip display loops on empty rows
+        if (!studentCommentText || studentCommentText.trim() === "") return;
+
+        const testimonialCardHtml = `
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-white p-4 h-100 shadow-sm border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="text-warning mb-3" style="font-size: 0.85rem;display:none;">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-secondary card-text mb-0" style="font-size: 0.88rem; line-height: 1.6; font-style: italic;">
+                            "${studentCommentText.trim()}"
+                        </p>
+                    </div>
+                    <div class="mt-3 pt-3 border-top border-light d-flex align-items-center gap-2">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="bi bi-person-fill" style="font-size: 0.85rem;"></i>
+                        </div>
+                        <small class="text-muted fw-bold" style="font-size: 0.72rem; letter-spacing: 0.02em;">Attendee</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        testimonialContainer.innerHTML += testimonialCardHtml;
+    });
+
+    // Simple fallback check
+    if (testimonialContainer.innerHTML === "") {
+        testimonialContainer.innerHTML = `<div class="col-12 text-center text-muted small">No visual reviews published yet.</div>`;
+    }
+}
+
         // Mobile-Safe Parsing / Formatting Pipeline Engine
         function processAndFormatDateString(gmtDateStr, targetTimezone) {
             if (!gmtDateStr || gmtDateStr.trim() === "" || gmtDateStr.trim().toUpperCase() === "TBD" || gmtDateStr.trim().toUpperCase() === "NAN") {
@@ -566,26 +636,60 @@
             renderSyllabusInterfaceEngine(); // Instantly mutates layout views synchronously
         }
 
-        function loadSyllabusDataPipeline() {
-            Papa.parse(CSV_MODULES_LIST_URL, {
-                download: true, header: true, skipEmptyLines: true,
-                complete: function(modulesResult) {
-                    globalModulesStoreData = modulesResult.data;
+        // function loadSyllabusDataPipeline() {
+        //     Papa.parse(CSV_MODULES_LIST_URL, {
+        //         download: true, header: true, skipEmptyLines: true,
+        //         complete: function(modulesResult) {
+        //             globalModulesStoreData = modulesResult.data;
                     
-                    Papa.parse(CSV_TOPICS_LIST_URL, {
-                        download: true, header: true, skipEmptyLines: true,
-                        complete: function(topicsResult) {
-                            globalTopicsStoreData = topicsResult.data;
+        //             Papa.parse(CSV_TOPICS_LIST_URL, {
+        //                 download: true, header: true, skipEmptyLines: true,
+        //                 complete: function(topicsResult) {
+        //                     globalTopicsStoreData = topicsResult.data;
                             
-                            // NEW: Chains and processes the Resources sheet tab dataset
-                            Papa.parse(CSV_RESOURCES_LIST_URL, {
-                                download: true, header: true, skipEmptyLines: true,
-                                complete: function(resourcesResult) {
-                                    globalResourcesStoreData = resourcesResult.data;
+        //                     // NEW: Chains and processes the Resources sheet tab dataset
+        //                     Papa.parse(CSV_RESOURCES_LIST_URL, {
+        //                         download: true, header: true, skipEmptyLines: true,
+        //                         complete: function(resourcesResult) {
+        //                             globalResourcesStoreData = resourcesResult.data;
                                     
-                                    // Re-render both interface blocks out cleanly
+        //                             // Re-render both interface blocks out cleanly
+        //                             renderSyllabusInterfaceEngine();
+        //                             renderResourcesInterfaceEngine();
+        //                         }
+        //                     });
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
+
+        function loadSyllabusDataPipeline() {
+    Papa.parse(CSV_MODULES_LIST_URL, {
+        download: true, header: true, skipEmptyLines: true,
+        complete: function(modulesResult) {
+            globalModulesStoreData = modulesResult.data;
+            
+            Papa.parse(CSV_TOPICS_LIST_URL, {
+                download: true, header: true, skipEmptyLines: true,
+                complete: function(topicsResult) {
+                    globalTopicsStoreData = topicsResult.data;
+                    
+                    Papa.parse(CSV_RESOURCES_LIST_URL, {
+                        download: true, header: true, skipEmptyLines: true,
+                        complete: function(resourcesResult) {
+                            globalResourcesStoreData = resourcesResult.data;
+                            
+                            // NEW: Chains and logs the feedback dataset
+                            Papa.parse(CSV_TESTIMONIALS_LIST_URL, {
+                                download: true, header: true, skipEmptyLines: true,
+                                complete: function(testimonialsResult) {
+                                    globalTestimonialsStoreData = testimonialsResult.data;
+                                    
+                                    // Build all page assets concurrently
                                     renderSyllabusInterfaceEngine();
                                     renderResourcesInterfaceEngine();
+                                    renderTestimonialsInterfaceEngine();
                                 }
                             });
                         }
@@ -593,7 +697,8 @@
                 }
             });
         }
-
+    });
+}
 
     </script>
 </body>
